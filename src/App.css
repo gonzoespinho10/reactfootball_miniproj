@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+   text-align: center;
 }
 
 .App-logo {
@@ -35,4 +35,31 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/*
+Nav Styling
+ */
+.navbar {
+  display: block;
+  background-color: #2ab274;
+}
+
+#rules {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+
+#rulesBtn {
+  margin-left: 10px;
+}
+
+#myTeam:hover {
+  box-shadow: rgba(34, 44, 36, 0.35) 0px 5px 15px;
+}
+
+.check-team {
+  display: flex;
+  justify-content: end;
 }
