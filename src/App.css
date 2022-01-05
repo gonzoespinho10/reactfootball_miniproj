@@ -61,5 +61,10 @@ Nav Styling
 
 .check-team {
   display: flex;
+  align-items: center;
   justify-content: end;
+}
+
+#myTeamBtn {
+  margin-right: 10px;
 }

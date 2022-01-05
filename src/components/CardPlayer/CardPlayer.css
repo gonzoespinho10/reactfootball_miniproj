@@ -1,0 +1,17 @@
+.posicao {
+    display: flex;
+    margin-left: inherit;
+}
+
+.foto-jogador {
+    height: 80px;
+}
+
+.list-group-item-action:hover {
+    background-color: #abdde5;
+}
+
+.list-group-item {
+    background-color: rgb(250, 250, 250);
+    border-color: #6bd0a1;
+}

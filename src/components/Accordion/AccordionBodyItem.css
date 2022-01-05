@@ -2,3 +2,13 @@
     height: 40px;
     margin-right: 15px;
 }
+
+#listJogador:hover {
+    background-color: #6c757d;
+}
+
+.accordion-button:hover {
+    background-color: #6bd0a1;
+    opacity: 50%;
+}
+
