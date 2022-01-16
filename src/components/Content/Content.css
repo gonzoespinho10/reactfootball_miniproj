@@ -12,3 +12,12 @@
     opacity: 50%;
 }
 
+.playerList {
+    flex-direction: row;
+}
+
+.accStyle {
+    margin-bottom: 4px;
+}
+
+

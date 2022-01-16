@@ -1,10 +1,5 @@
-.posicao {
-    display: flex;
-    margin-left: inherit;
-}
-
 .foto-jogador {
-    height: 80px;
+    max-height: 80px;
 }
 
 .list-group-item-action:hover {
@@ -14,4 +9,60 @@
 .list-group-item {
     background-color: rgb(250, 250, 250);
     border-color: #6bd0a1;
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+
+.cardPlayer {
+    filter: drop-shadow(2px 2px 4px lightgrey);
+    border-radius: 25px;
+}
+
+.namePlayer {
+    font-size: large;
+    flex-grow: 3;
+    font-weight: 500;
+}
+
+.positionPlayer {
+    margin-left: 10px;
+    font-size: small;
+}
+
+.modalPhoto {
+    display: block;
+    width: auto;
+    margin: auto;
+}
+.modalText {
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+.modalPos {
+    text-align: center;
+}
+
+.removeBtn {
+    display: flex;
+    margin-right: 178px;
+}
+
+#myModal {
+    background-color: transparent;
+    box-shadow: rgba(51, 50, 50, 0.75) 0px 8px 24px, rgba(255, 255, 255, 0.35) 0px 16px 56px, rgba(255, 255, 255, 0.09) 0px 24px 80px;
+}
+
+.TextMargin {
+    margin-top: 13px;
+}
+
+.border-radius div {
+    border-radius: 15px !important;
+    outline: 0px;
+}
+
+.bold{
+    font-weight: 400;
 }

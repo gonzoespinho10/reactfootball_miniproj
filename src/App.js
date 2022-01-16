@@ -2,18 +2,42 @@ import logo from './logo.svg';
 import './App.css';
 import Navbar from "./components/Navbar/Navbar";
 import React, {useEffect, useState} from "react";
-import AccordionBodyItem from "./components/Accordion/AccordionBodyItem";
+import Content from "./components/Content/Content";
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import MyTeam from "./components/MyTeam/MyTeam";
 
 function App() {
 
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
 
+    const [myTeam, setMyTeam] = useState([]);
+    const [players, setPlayers] = useState([]);
+
     const x_rapidapi_host = "api-football-v1.p.rapidapi.com";
     const x_rapidapi_key = "24ef27f2b9msh1b6bcf01dfa7732p1c6ca1jsnfdf40d57abad";
 
 
-  useEffect(() => {
+    const updatePlayer = (player) => {
+        player.myPlayer = true;
+        setPlayers((players) => [...players]);
+        setMyTeam([...myTeam, player]);
+        console.log(myTeam);
+    }
+
+    const removePlayer = (player) => {
+        player.myPlayer = null;
+        setPlayers((players) => [...players]);
+        const index = myTeam.indexOf(player);
+        if (index > -1) {
+            myTeam.splice(index, 1);
+        }
+        console.log(myTeam);
+    }
+
+
+
+    useEffect(() => {
       const fetchData = async () => {
           setIsLoading(true)
           try {
@@ -43,8 +67,15 @@ function App() {
             :
             (
         <div className="App">
-            <Navbar></Navbar>
-            <AccordionBodyItem teams = {data}></AccordionBodyItem>
+            <Router>
+                <Navbar></Navbar>
+                <Routes>
+                    <Route path="/" element={<Content teams = {data} updatePlayer={updatePlayer}
+                     removePlayer={removePlayer} myteam={myTeam} setPlayers={setPlayers} players={players}
+                    />}></Route>
+                    <Route path="/MyTeam" element={<MyTeam myTeam={myTeam} />}></Route>
+                </Routes>
+            </Router>
         </div>)
     );
 
