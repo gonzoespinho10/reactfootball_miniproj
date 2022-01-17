@@ -1,6 +1,7 @@
 .titulo {
     font-weight: bold;
-    margin-top: 1px;
+    margin-top: 3px;
     padding-top: 5px;
-    font-size: 38px;
+    font-size: 50px;
+    font-family: 'Fjalla One', sans-serif;
 }

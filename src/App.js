@@ -19,14 +19,14 @@ function App() {
 
 
     const updatePlayer = (player) => {
-        player.myPlayer = true;
+        player.player.myPlayer = true;
         setPlayers((players) => [...players]);
         setMyTeam([...myTeam, player]);
         console.log(myTeam);
     }
 
     const removePlayer = (player) => {
-        player.myPlayer = null;
+        player.player.myPlayer = null;
         setPlayers((players) => [...players]);
         const index = myTeam.indexOf(player);
         if (index > -1) {
@@ -35,48 +35,46 @@ function App() {
         console.log(myTeam);
     }
 
-
-
     useEffect(() => {
-      const fetchData = async () => {
-          setIsLoading(true)
-          try {
-              const res = await fetch("https://api-football-v1.p.rapidapi.com/v3/standings?season=2021&league=94", {
-                  "method": "GET",
-                  "headers": {
-                      "x-rapidapi-host": x_rapidapi_host,
-                      "x-rapidapi-key": x_rapidapi_key
-                  }
-              });
-              const json = await res.json()
-              const teams = json.response[0].league.standings[0];
-              setData(teams)
-              setIsLoading(false);
-          }
-              catch(error) {
-                  console.log("Error")
-              }
-              setIsLoading(false);
-      }
-   fetchData()}, [])
-
+        const fetchData = async () => {
+            setIsLoading(true)
+            try {
+                const res = await fetch("https://api-football-v1.p.rapidapi.com/v3/standings?season=2021&league=94", {
+                    "method": "GET",
+                    "headers": {
+                        "x-rapidapi-host": x_rapidapi_host,
+                        "x-rapidapi-key": x_rapidapi_key
+                    }
+                });
+                const json = await res.json()
+                const teams = json.response[0].league.standings[0];
+                setData(teams)
+                setIsLoading(false);
+            } catch (error) {
+                console.log("Error")
+            }
+            setIsLoading(false);
+        }
+        fetchData()
+    }, [])
 
 
     return (
         isLoading ? (<p>Loading ...</p>)
             :
             (
-        <div className="App">
-            <Router>
-                <Navbar></Navbar>
-                <Routes>
-                    <Route path="/" element={<Content teams = {data} updatePlayer={updatePlayer}
-                     removePlayer={removePlayer} myteam={myTeam} setPlayers={setPlayers} players={players}
-                    />}></Route>
-                    <Route path="/MyTeam" element={<MyTeam myTeam={myTeam} />}></Route>
-                </Routes>
-            </Router>
-        </div>)
+                <div className="App">
+                    <Router>
+                        <Navbar></Navbar>
+                        <Routes>
+                            <Route path="/" element={<Content teams={data} updatePlayer={updatePlayer}
+                                                              removePlayer={removePlayer} myteam={myTeam}
+                                                              setPlayers={setPlayers} players={players}
+                            />}></Route>
+                            <Route path="/MyTeam" element={<MyTeam myTeam={myTeam}/>}></Route>
+                        </Routes>
+                    </Router>
+                </div>)
     );
 
 }

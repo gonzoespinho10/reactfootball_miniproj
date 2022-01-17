@@ -7,7 +7,7 @@ import ModalPlayer from "../Modal/ModalPlayer";
 
 const CardPlayer = ({player, name, position, img, assists, golos, jogos, isMyPlayer, updatePlayer, removePlayer}) => {
 
-    console.log(isMyPlayer);
+    console.log(player);
 
     const [show, setShow] = useState(false);
 

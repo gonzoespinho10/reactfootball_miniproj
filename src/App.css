@@ -1,7 +1,6 @@
 .App {
    text-align: center;
   width: 100%;
-  padding-right: 9px;
 }
 
 .App-logo {
@@ -44,7 +43,6 @@ Nav Styling
  */
 .navbar {
   display: block;
-  background-color: #2ab274;
 }
 
 #rules {
